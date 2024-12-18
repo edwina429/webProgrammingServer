@@ -75,7 +75,7 @@ app.post("/verifyUser", async(req, res) => {
   try{
     const userInput = req.body
     const allUsers = await students.findAll({
-      where : {name : "ed" }
+      where : {name : userInput.username }
     });
     console.log("**user sent username", userInput.username)
     console.log("**user sent password", userInput.password)
