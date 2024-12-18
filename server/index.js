@@ -5,15 +5,14 @@ const {Pool} = require('pg');
 const app = express();
 const port = process.env.PORT || 3000;
 const {Sequelize, DataTypes} = require("sequelize");
-const { ConstantColorFactor } = require("three");
 const cors = require("cors");
 app.use(
   cors({
     origin: "https://webprogrammingfinalprojectbeta.onrender.com",
   })
 );
-app.use(express.json());  
 
+app.use(express.json());  
 const sequelize = new Sequelize(process.env.DB_URL, {
     dialect: "postgres",
     logging: false,
@@ -175,5 +174,5 @@ app.post("/verifyUser", async(req, res) => {
 
 
 
-app.listen(4090, () => console.log(`Server is running on http://localhost:${port}`))
+app.listen(port, () => console.log(`Server is running on http://localhost:${port}`))
 
